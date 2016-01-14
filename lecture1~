@@ -1,0 +1,39 @@
+show folders in server: type "nautilus" on terminal
+
+%
+
+setting up environment variables
+
+open terminal
+
+gedit .bashrc
+
+export [variable name]=[name of folder] -- this creates variable that says where to 'cd' to
+in terminal, use "cd $[variable name]"
+
+test variable: type "echo [variable name]" on terminal
+
+%
+
+Git
+
+to commit and use mesagem in less annoying way
+git commit -m "put message here"
+
+
+%
+
+Stata
+
+set more off
+this makes the annoying thing that stata has that you have to keep pressing "more" to show results
+set matsize increases the number of lines that stata shows
+
+helpful for debugging in stata
+set trace on
+
+break lines ///
+or 
+#delimit
+bla bla
+#delimit cr
