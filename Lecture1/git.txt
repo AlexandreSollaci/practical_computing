@@ -1,0 +1,25 @@
+1. Please create accounts on github.com and send your username to whoever owns the repo you'd like to collaborate on, so that they can give you permission to access the repo when it's ready.
+
+You can use git bash in windows or terminal in mac to execute git commands (installing additional packages in windows will allow you to execute git commands in windows command prompt or power shell).
+
+2. Begin by copying the repository to your chosen directory.
+
+git clone https://github.com/selango/<nameofrepository> 
+
+(Hint: this changes in the server to the ssh address.)
+
+3. Change the working directory to the main repository. (command is "cd")
+
+4. Once you've made changes, use "git status" to view the status of your repository with respect to the master.
+
+5. To push your changes to the master repo, follow these steps:
+
+git add .
+git commit -m "<message>"
+git push origin master
+
+6. To pull the latest version for the repo:
+
+git pull
+
+**As a rule, please always pull before working**

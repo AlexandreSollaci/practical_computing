@@ -1,0 +1,44 @@
+Why we use environment variables:
+
+Suppose we both like to save all our stata code in some CEHD folder on our computers.
+I save mine under "E:\Documents\CEHD"
+You save yours under "\home\jiarui\Documents\CEHD"
+
+I then give you my stata code, the first line of which is "cd E:\Documents\CEHD"
+But maybe you can't run that code because the path doesn't exist on your computer.
+And even if that path does exist, it's the wrong CEHD folder.
+This is one of the most basic problems of sharing stata code with others.
+
+The solution is to use environment variables.
+We both create an environment variable called "cehd".
+I set my variable equal to "E:\Documents\CEHD"
+You set yours equal to  "\home\jiarui\Documents\CEHD"
+
+I can then change the first line of my stata code to become:
+. global cehd_path: env cehd
+. cd $cehd_path
+
+The first line of code translates to:
+1. Look at my computer's environment variables, and find the one called "cehd"
+2. Evaluate that environment variable, i.e. see what it's value is: so in my case, I get "E:\Documents\CEHD", and you get "\home\jiarui\Documents\CEHD"
+3. Now save that value to a macro (global) called 'cehd_path'
+
+The second line of code depends on whose computer we run it on.
+4. On my computer, it says to change working directory to whatever is saved in the global 'cehd_path', i.e. change directory to 'E:\Documents\CEHD'
+5. On your computer, it will also say to change working directory to whatever is saved in the global 'cehd_path', but will instead go to "\home\jiarui\Documents\CEHD"
+6. So now the code runs on both are machines, and we're both changing into the correct directory.
+
+============================
+
+So with environment variables, neither of us need to mess with the paths when sharing code. My code should run on your machine, and anyone else's machine, so long as they've set up the appropriate environment variables.
+
+==================================
+Windows Setup
+
+https://www.microsoft.com/resources/documentation/windows/xp/all/proddocs/en-us/sysdm_advancd_environmnt_addchange_variable.mspx?mfr=true
+
+==================================
+Mac Setup
+
+http://stackoverflow.com/questions/25385934/setting-environment-variables-via-launchd-conf-no-longer-works-in-os-x-yosemite
+
